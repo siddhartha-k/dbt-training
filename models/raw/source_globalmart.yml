@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: globalmart
+    database: raw
+    schema: globalmart
+    tables:
+      - name: customers
+        columns:
+          - name: customerid
+            tests:
+              - not_null
+              - unique
+      - name: orders
+        columns:
+          - name: orderid
+            tests:
+              - not_null
+              - unique
+              - accepted_values:
+                  values: ["First Class", "Standard Class", "Same Day"]              
+      - name: product
