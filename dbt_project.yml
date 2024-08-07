@@ -42,4 +42,3 @@ models:
       +materialized: table
     stage:
       +materialized: view
-
