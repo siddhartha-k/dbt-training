@@ -1,3 +1,10 @@
+{{
+    config(
+        materialized = 'incremental',
+        incremental_strategy = 'merge',
+    )
+}}
+
 select
 --from raw_orders
 {{ dbt_utils.generate_surrogate_key(['o.orderid', 'c.customerid', 'p.productid']) }} as hash_key,
